@@ -2,7 +2,7 @@
 //  CustomTableViewClassVC.swift
 //  RearrangingRowCell
 //
-//  Created by appinventiv on 24/08/17.
+//  Created by yogesh singh negi on 24/08/17.
 //  Copyright © 2017 appinventiv. All rights reserved.
 //
 
@@ -34,7 +34,8 @@ class CustomTableViewClassVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.navigationItem.title = "My Friends List"
         self.customTableView.delegate = self
         self.customTableView.dataSource = self
         self.editDoneTitleBtn.setTitle("Edit", for: .normal)
