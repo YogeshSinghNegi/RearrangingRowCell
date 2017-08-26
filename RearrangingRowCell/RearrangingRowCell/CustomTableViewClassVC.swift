@@ -26,9 +26,9 @@ class CustomTableViewClassVC: UIViewController {
     
     @IBOutlet weak var customTableView: UITableView!
     
-    @IBOutlet weak var editDoneTitleBtn: UIButton!
+    @IBOutlet weak var editNavigationBtnTitle: UIBarButtonItem!
     
-//=============================================================//
+    //=============================================================//
 //MARK: View Methods
 //=============================================================//
     
@@ -38,7 +38,8 @@ class CustomTableViewClassVC: UIViewController {
         self.navigationItem.title = "My Friends List"
         self.customTableView.delegate = self
         self.customTableView.dataSource = self
-        self.editDoneTitleBtn.setTitle("Edit", for: .normal)
+        self.editNavigationBtnTitle.title = "Edit"
+//        self.editDoneTitleBtn.setTitle("Edit", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,28 +47,31 @@ class CustomTableViewClassVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//=============================================================//
+//MARK: Defining IBAction - Setting TableView To Edit OR Done Mode
+//=============================================================//
     
-    @IBAction func editDoneBtnTapped(_ sender: UIButton) {
+    @IBAction func editNavigationBtnTapped(_ sender: UIBarButtonItem) {
         
-//=============================================================//
-//MARK: Setting TableView To Edit OR Done Mode
-//=============================================================//
-        
-        if self.customTableView.isEditing{
+      if self.customTableView.isEditing{
             //listTableView.editing = false;
             self.customTableView.setEditing(false, animated: false);
-            self.editDoneTitleBtn.setTitle("Edit", for: .normal)
+            self.editNavigationBtnTitle.title = "Edit"
+//            self.editDoneTitleBtn.setTitle("Edit", for: .normal)
             //listTableView.reloadData();
         }
+            
         else{
             //listTableView.editing = true;
             self.customTableView.setEditing(true, animated: true);
-            self.editDoneTitleBtn.setTitle("Done", for: .normal)
+            self.editNavigationBtnTitle.title = "Done"
+//            self.editDoneTitleBtn.setTitle("Done", for: .normal)
             //listTableView.reloadData();
         }
     }
-
+    
 }
+
 
 //=============================================================//
 //MARK: CustomTableViewClassVC Class Extension

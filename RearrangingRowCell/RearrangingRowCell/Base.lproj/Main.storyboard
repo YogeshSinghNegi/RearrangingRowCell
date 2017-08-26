@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sze-y3-PJ5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellForRowClass_ID" id="fFR-Ha-7Xv" customClass="CellForRowClass" customModule="RearrangingRowCell" customModuleProvider="target">
@@ -51,29 +51,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-Ig-TvP">
-                                <rect key="frame" x="158" y="623" width="58" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="editDoneBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gqn-6C-Gth"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0dk-Kg-RGf" firstAttribute="top" secondItem="sze-y3-PJ5" secondAttribute="bottom" id="3Be-ri-UIe"/>
                             <constraint firstItem="sze-y3-PJ5" firstAttribute="top" secondItem="9xZ-pu-sO2" secondAttribute="bottom" id="3ib-pj-XE8"/>
                             <constraint firstAttribute="trailing" secondItem="sze-y3-PJ5" secondAttribute="trailing" id="5kZ-Kg-KSr"/>
-                            <constraint firstItem="NvZ-Ig-TvP" firstAttribute="top" secondItem="sze-y3-PJ5" secondAttribute="bottom" constant="5" id="LoK-1y-zqc"/>
                             <constraint firstItem="sze-y3-PJ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P65-hg-6sr"/>
-                            <constraint firstItem="NvZ-Ig-TvP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vf9-ao-RFS"/>
-                            <constraint firstItem="0dk-Kg-RGf" firstAttribute="top" secondItem="NvZ-Ig-TvP" secondAttribute="bottom" constant="8" id="gYg-JG-Kpy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8b1-di-Mdt"/>
+                    <navigationItem key="navigationItem" id="8b1-di-Mdt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="geB-ZQ-VkE">
+                            <connections>
+                                <action selector="editNavigationBtnTapped:" destination="BYZ-38-t0r" id="dCc-eM-IUd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="customTableView" destination="sze-y3-PJ5" id="wxC-Ay-Pwg"/>
-                        <outlet property="editDoneTitleBtn" destination="NvZ-Ig-TvP" id="FlY-ne-WQQ"/>
+                        <outlet property="editNavigationBtnTitle" destination="geB-ZQ-VkE" id="J6v-fL-chZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
