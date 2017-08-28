@@ -123,6 +123,9 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
         self.nameArray.insert(temp, at: destinationIndexPath.row)
         
     }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.none
+    }
   
 }
 
