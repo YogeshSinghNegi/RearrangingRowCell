@@ -28,7 +28,7 @@ class CustomTableViewClassVC: UIViewController {
     
     @IBOutlet weak var editNavigationBtnTitle: UIBarButtonItem!
     
-    //=============================================================//
+//=============================================================//
 //MARK: View Methods
 //=============================================================//
     
@@ -39,12 +39,7 @@ class CustomTableViewClassVC: UIViewController {
         self.customTableView.delegate = self
         self.customTableView.dataSource = self
         self.editNavigationBtnTitle.title = "Edit"
-//        self.editDoneTitleBtn.setTitle("Edit", for: .normal)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 //=============================================================//
@@ -54,19 +49,13 @@ class CustomTableViewClassVC: UIViewController {
     @IBAction func editNavigationBtnTapped(_ sender: UIBarButtonItem) {
         
       if self.customTableView.isEditing{
-            //listTableView.editing = false;
             self.customTableView.setEditing(false, animated: false);
             self.editNavigationBtnTitle.title = "Edit"
-//            self.editDoneTitleBtn.setTitle("Edit", for: .normal)
-            //listTableView.reloadData();
         }
             
         else{
-            //listTableView.editing = true;
             self.customTableView.setEditing(true, animated: true);
             self.editNavigationBtnTitle.title = "Done"
-//            self.editDoneTitleBtn.setTitle("Done", for: .normal)
-            //listTableView.reloadData();
         }
     }
     
@@ -96,7 +85,6 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellForRowClass_ID") as? CellForRowClass else { fatalError("Cell Failed to load") }
         
         cell.nameLabel.text = self.nameArray[indexPath.row]
-        
         return cell
     }
     
@@ -121,8 +109,8 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
         let temp = self.nameArray[sourceIndexPath.row]
         self.nameArray.remove(at: sourceIndexPath.row)
         self.nameArray.insert(temp, at: destinationIndexPath.row)
-        
     }
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.none
     }
