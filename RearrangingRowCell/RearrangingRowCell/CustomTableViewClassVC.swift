@@ -111,8 +111,21 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
         self.nameArray.insert(temp, at: destinationIndexPath.row)
     }
     
+//=============================================================//
+//MARK: Inserting New Cells
+//=============================================================//
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.none
+        return UITableViewCellEditingStyle.insert
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.insert{
+            self.nameArray.insert("New Element Inserted", at: indexPath.row)
+            tableView.reloadData()
+            
+        }
     }
   
 }
