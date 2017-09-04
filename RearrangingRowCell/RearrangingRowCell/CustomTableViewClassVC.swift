@@ -48,14 +48,14 @@ class CustomTableViewClassVC: UIViewController {
     
     @IBAction func editNavigationBtnTapped(_ sender: UIBarButtonItem) {
         
-      if self.customTableView.isEditing{
-            self.customTableView.setEditing(false, animated: false);
-            self.editNavigationBtnTitle.title = "Edit"
+      if self.customTableView.isEditing {
+            self.customTableView.setEditing(false, animated: false)
+            self.editNavigationBtnTitle.title = "Done"
         }
             
-        else{
-            self.customTableView.setEditing(true, animated: true);
-            self.editNavigationBtnTitle.title = "Done"
+        else {
+            self.customTableView.setEditing(true, animated: true)
+            self.editNavigationBtnTitle.title = "Edit"
         }
     }
     
