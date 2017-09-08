@@ -61,15 +61,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8b1-di-Mdt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="geB-ZQ-VkE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xQs-kX-CPk">
                             <connections>
-                                <action selector="editNavigationBtnTapped:" destination="BYZ-38-t0r" id="dCc-eM-IUd"/>
+                                <action selector="editNavigationBtnTapped:" destination="BYZ-38-t0r" id="We2-Bm-zRS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="customTableView" destination="sze-y3-PJ5" id="wxC-Ay-Pwg"/>
-                        <outlet property="editNavigationBtnTitle" destination="geB-ZQ-VkE" id="J6v-fL-chZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

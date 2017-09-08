@@ -15,7 +15,7 @@ import UIKit
 class CustomTableViewClassVC: UIViewController {
     
 //=============================================================//
-//MARK: Stored Property
+//MARK: Stored Property - nameArray - Showing the list in the Table
 //=============================================================//
 
     var nameArray = ["Yogesh","Arvind","Sajal","Vinay","Akshay","Negi","Kartik","Aman","Kumar","Verma"]
@@ -26,19 +26,18 @@ class CustomTableViewClassVC: UIViewController {
     
     @IBOutlet weak var customTableView: UITableView!
     
-    @IBOutlet weak var editNavigationBtnTitle: UIBarButtonItem!
-    
 //=============================================================//
 //MARK: View Methods
 //=============================================================//
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Setting the Title of the Navigation Item
         self.navigationItem.title = "My Friends List"
         self.customTableView.delegate = self
         self.customTableView.dataSource = self
-        self.editNavigationBtnTitle.title = "Edit"
+        // Setting the Title of the RightBarButtonItem of the Navigation Item
+        self.navigationItem.rightBarButtonItem?.title = "Edit"
         
     }
     
@@ -49,13 +48,15 @@ class CustomTableViewClassVC: UIViewController {
     @IBAction func editNavigationBtnTapped(_ sender: UIBarButtonItem) {
         
       if self.customTableView.isEditing {
+            // Setting TableView to Not Editing Mode
             self.customTableView.setEditing(false, animated: false)
-            self.editNavigationBtnTitle.title = "Done"
+            self.navigationItem.rightBarButtonItem?.title = "Edit"
         }
             
         else {
+            // Setting TableView to Editing Mode
             self.customTableView.setEditing(true, animated: true)
-            self.editNavigationBtnTitle.title = "Edit"
+            self.navigationItem.rightBarButtonItem?.title = "Done"
         }
     }
     
@@ -82,7 +83,7 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellForRowClass_ID") as? CellForRowClass else { fatalError("Cell Failed to load") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellForRowClass_ID") as? CellForRowClass else { fatalError("Cell Failed to load at cellForRow") }
         
         cell.nameLabel.text = self.nameArray[indexPath.row]
         return cell
@@ -105,7 +106,7 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
+        // Storing the name from the source index to the destination index
         let temp = self.nameArray[sourceIndexPath.row]
         self.nameArray.remove(at: sourceIndexPath.row)
         self.nameArray.insert(temp, at: destinationIndexPath.row)
@@ -116,6 +117,7 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
 //=============================================================//
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        // Setting the TableView in Editing Mode for adding new Row
         return UITableViewCellEditingStyle.insert
     }
     
@@ -123,7 +125,8 @@ extension CustomTableViewClassVC: UITableViewDelegate,UITableViewDataSource{
         
         if editingStyle == UITableViewCellEditingStyle.insert{
             self.nameArray.insert("New Element Inserted", at: indexPath.row)
-            tableView.reloadData()
+            // One Row Will be inserted with animation
+            tableView.insertRows(at: [indexPath], with: .middle)
             
         }
     }
